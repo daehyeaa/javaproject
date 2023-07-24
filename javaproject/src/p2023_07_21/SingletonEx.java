@@ -6,7 +6,9 @@ class Singleton {
 	// 객체를 생성 (객체를 한번만 생성하는 것이 싱글톤)
 	private static Singleton singleton = new Singleton(); // 정적 필드 (private)로 외부 클래스 접근 못하도록 함 
 	
-	private Singleton() {};	// private 으로 직접 객체 생성을 막아주는 역할
+	private Singleton() {	// private 으로 직접 객체 생성을 막아주는 역할
+		
+	};	
 	
 	// private 정적필드여서 접근이 불가 하여 정적메소드를 이용하여 리턴을 해서 필드를 공유
 	// 정적 메소드를 이용해서 공유를 한다.
@@ -42,8 +44,9 @@ public class SingletonEx {
 			System.out.println("다른 Singleton 객체입니다.");
 		}
 		
+		System.out.println("깃 허브 테스트 기존 있는 파일 수정 해서 올릴때 제대로 올라가는지");
 		// Singleton s = new Singleton(); //오류발생
-		
+		Singleton.getInstance().check();
 		obj1.check();
 		obj1.check1();
 		obj2.check();

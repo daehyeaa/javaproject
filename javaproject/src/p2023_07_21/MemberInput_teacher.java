@@ -2,7 +2,7 @@ package p2023_07_21;
 
 import java.util.Scanner;
 
-public class MemberInput {
+public class MemberInput_teacher {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
