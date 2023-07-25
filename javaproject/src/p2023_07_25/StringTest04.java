@@ -1,5 +1,9 @@
 package p2023_07_25;
 
+
+// stringTokenizer
+// : 특정 문자열에서 구분기호(#)를 이용해서 데이터를 파싱한 다음에 문자열(토큰)을 구해오는 경우에 사용한다.
+// 토큰(token) : 이순신, 을지문덕, 강감찬, 광개토대왕
 import java.util.*;
 
 class StringTest04 {

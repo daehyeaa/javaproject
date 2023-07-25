@@ -7,7 +7,7 @@ public class StringTokenizerTest1 {
 	public static void main(String[] args) {
 	
 		String source1="111-111|강원도|춘천시|퇴계동";
-		StringTokenizer st1=new StringTokenizer(source1,"|");
+		StringTokenizer st1=new StringTokenizer(source1,"|"); // 구분기호(|)을 가지고 기준으로 문자열을 파싱한다.
 		
 		String zip=st1.nextToken();
 		String dou=st1.nextToken();
