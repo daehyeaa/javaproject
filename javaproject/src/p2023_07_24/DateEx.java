@@ -8,7 +8,7 @@ import java.util.Date;
 public class DateEx {
 
 	public static void main(String[] args) {
-		// 날짜 시간 관련 클래스 : Date, Timestamp
+		// 날짜 시간 관련 클래스 : Date, Timestamp 주로 쓰는 것
 		
 		//1. Date		
 			// 년, 월, 일. 시, 분, 초 요일로 날짜를 출력		

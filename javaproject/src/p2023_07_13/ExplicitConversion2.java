@@ -5,7 +5,7 @@ public class ExplicitConversion2 {
     public static void main( String[] args ) {
     	
     // int형 변수를 97로 초기화
-    int intValue = 97;
+    int intValue = 65;		// 97 = a 65 = A
 
     // int형 변수 값을 char형으로 변환 후 할당
     char charValue = ( char )intValue;
