@@ -13,6 +13,7 @@ public class Homework08 {
 		int [] intArr = new int[juminNumber.length()];
 		for(int i=0; i<juminNumber.length(); i++) {
 			intArr[i] = Integer.parseInt(juminNumber.substring(i,i+1));
+			//total += Integer.parseInt(juminNumber.substring(i,i+1)) * juminChkNumber[i];
 		}
 		System.out.println(Arrays.toString(intArr));
 		for(int i=0; i<intArr.length-1; i++) {
@@ -51,7 +52,7 @@ public class Homework08 {
 		String jumin2 = sc.nextLine();
 
 		//String g = jumin2.substring(0, 1); // jumin2 = "1234567" //예외가 발생할 가능성이 있는 곳 뒷자리를 입력하지 않으면 substring을 추출 할 수 없다.
-
+		String juminNumber = jumin1.concat(jumin2);
 		// 유효성 검사
 		if (jumin1.equals("")) {
 			System.out.println("주민번호 앞자리를 입력 하세요.");
@@ -61,9 +62,12 @@ public class Homework08 {
 			System.out.println("주민번호 뒷자리를 입력 하세요.");
 		} else if (jumin2.length() != 7) {
 			System.out.println("주민번호 뒷자리 7자리를 입력 하세요. ");
+		} else if(chk(jumin1+jumin2) == true) {
+			System.out.println("올바른 주민등록번호입니다.");
+		}else {
+			System.out.println("잘못된 주민등록번호입니다.");
 		}
 		
-		String juminNumber = jumin1.concat(jumin2);
 		//System.out.println(juminNumber);
 		
 		if(chk(juminNumber) == true) {
