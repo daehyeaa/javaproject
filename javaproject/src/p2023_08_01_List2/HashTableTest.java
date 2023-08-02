@@ -21,7 +21,7 @@ class HashTableTest {
      ht.put("사과", "Apple");     
      ht.put("포도", "Grapes");
      ht.put("count", 10);
-
+     
      
      // 방법1. key를 알고 있는 경우
      // Object get(Object key)
@@ -47,7 +47,27 @@ class HashTableTest {
      while(Enum.hasMoreElements()){
          Object /*String*/  k = /*(String)*/Enum.nextElement();
          Object/*String*/  v = /*(String)*/ht.get(k);
-         System.out.println(k + " : "+ v );
+         System.out.println(k + "ㅎ :ㅎ "+ v );
+     }
+     
+     System.out.println("-------------------------------------");
+     Enumeration Enum1 =ht.keys();	//키 뭉치 가져오기
+     
+//     while(Enum1.hasMoreElements()){
+//         Object /*String*/  k = /*(String)*/Enum1.nextElement();
+//         Object/*String*/  v = /*(String)*/ht.get(k);
+//         System.out.println(k + " : "+ v );
+//     }
+     
+     while(Enum1.hasMoreElements()) {
+    	 //Enum1.nextElement();
+    	 Object k = Enum1.nextElement();
+    	 System.out.println("무슨값이야"+Enum1.nextElement());
+    	 Object v = ht.get(k);
+    	 
+    	 //System.out.println("키값:  " + Enum1.nextElement() + "   벨류값:   "+ v);
+    	 System.out.println("키값:  " + k + "   벨류값:   "+ v);
+    	 
      }
    }    
 }                                                

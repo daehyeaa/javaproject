@@ -1,5 +1,6 @@
 package p2023_08_01_List2;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Scanner;
