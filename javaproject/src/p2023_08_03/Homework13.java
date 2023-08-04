@@ -32,7 +32,7 @@ public class Homework13 extends Thread{
 			Date d = new Date();
 			System.out.println(sd.format(d));
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(1000);// 쓰레드 한번 죽이는거 
 			}catch(Exception e) {}
 			
 			}
