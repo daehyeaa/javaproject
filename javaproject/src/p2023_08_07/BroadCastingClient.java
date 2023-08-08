@@ -5,8 +5,10 @@ import java.awt.event.*;
 import java.io.*;
 import java.net.*;
 
+
 public class BroadCastingClient implements Runnable, ActionListener {
 	
+	//172.30.1.33 선생님 자리 ip
     // 클라이언트의 폼을 구성하는 component
     Frame first, second;
     Panel p;
