@@ -1,63 +1,70 @@
-package p2023_08_08;
+package p2023_08_09;
 
 import java.io.BufferedReader; // 도스 콘솔 창에서 사용자 입력을 받아들이기 위해 BufferedReader 
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-class JDBC_Update {
+class JDBC_Insert01 {
 	public static void main(String[] args) {
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
 		Connection con = null;
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 
+		// ResultSet rs = null;
 		String sql;
-		int no = 0;
-		String name, email, tel;
+
+		String name, email, tel, no;
 
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, "scott", "tiger");
-			
-		//  Connection 객체에서 호출되며, SQL 문을 실행하기 위한 Statement 객체를 생성합니다.
-			stmt = con.createStatement(); 
 
 			// ---JDBC_Insert 추가된 내용-------
 			// 테이블에 추가할 내용을 도스 콘솔 창에서 사용자의 입력을 받도록 한다.
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println(" customer 테이블에 값 갱신하기 .....");
-			System.out.print("수정할 회원번호를 입력 하세요?");
-			no = Integer.parseInt(br.readLine());
-			System.out.print("변경할 이름을 입력하세요: ");
+
+			System.out.println(" customer 테이블에 값 입력하기 .....");
+			System.out.print(" 번호 입력: ");
+			no = br.readLine();
+			System.out.print(" 이름 입력: ");
 			name = br.readLine(); // 테이블에 추가할 name 필드 값을 입력 받음
-			System.out.print("변경할 이메일 입력: ");
+			System.out.print(" 이메일 입력: ");
 			email = br.readLine(); // 테이블에 추가할 email 필드 값을 입력 받음
-			System.out.print("변경할 전화번호 입력: ");
+			System.out.print(" 전화번호 입력: ");
 			tel = br.readLine(); // 테이블에 추가할 tel 필드 값을 입력 받음
 
-			// INSERT 쿼리문을 작성
-			// 수정할 값은  ' + emial '
-			// "UPDATE customer Set emial = '(외따움표) "(쌍다움표) + emial + "(쌍다움표) '(외따움표)
-			sql = "UPDATE customer SET email=' " + email;
-			sql += " ' , tel=' " + tel + " ', name=' " + name + " ' WHERE no = "  + no;
+			int ino = Integer.parseInt(no);
 
-			// Statement 객체의 executeUpdate(sql) 메서드를 이용해
-			int result = stmt.executeUpdate(sql); // 데이터베이스 파일의 내용을 변경시킴	반환값 int result = 성공한 row 갯수
+			// INSERT 쿼리문을 작성
+			sql = "INSERT into customer (no, name, email, tel) values (?, ?, ?, ?)";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, ino);
+			pstmt.setString(2, name);
+			pstmt.setString(3, email);
+			pstmt.setString(4, tel);
+			int result = pstmt.executeUpdate();
+			System.out.println("리설트" + result);
 			if (result == 1) {
-				System.out.println("데이터 수정 성공");
+				System.out.println("데이터 입력 성공");
 			} else {
-				System.out.println("데이터 수정 실패");
+				System.out.println("데이터 입력 실패");
 			}
+
 		} catch (Exception e) {
 			System.out.println("데이터베이스 연결 실패!");
 		} finally {
 			try {
-				if (stmt != null)
-					stmt.close();
+				// if (rs != null)
+				// rs.close();
+				if (pstmt != null)
+					pstmt.close();
 				if (con != null)
 					con.close();
 			} catch (Exception e) {

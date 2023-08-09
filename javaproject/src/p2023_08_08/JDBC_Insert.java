@@ -9,7 +9,8 @@ class JDBC_Insert {
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
-		Connection con = null;  // db 연결 시켜주는 (인터페이스)객체
+		// new로 객체 자체를 만들지는 못하지만 인터페이스 변수명으로 선언은 할 수 있다.
+		Connection con = null;  // db 연결 시켜주는 (인터페이스)객체  
 		Statement stmt = null; // sql문을 실행시켜주는 (인터페이스)객체
 		//PreparedStatement , Statemanet sql문을 실행시켜주는 클래스(인터페이스)
 		// ResultSet rs = null;

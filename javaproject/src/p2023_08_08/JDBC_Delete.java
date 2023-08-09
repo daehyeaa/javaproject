@@ -31,6 +31,8 @@ class JDBC_Delete {
 			no = Integer.parseInt(br.readLine()); // 테이블에서 삭제할 name 필드 값을 입력 받음
 
 			// DELETE 쿼리문을 작성
+			// ' 외다움표가 있으면 문자로 인식하고 외 따움표가 없으면 숫자로 인식한다.
+			// 그래서 String no로 바꿔서 입력을 한다면 문제 없이 삭제가 될 것 입니다.
 			sql = "DELETE FROM customer WHERE no =" + no;
 
 			// Statement 객체의 executeUpdate(sql) 메서드를 이용해

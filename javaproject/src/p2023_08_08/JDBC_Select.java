@@ -10,6 +10,7 @@ class JDBC_Select {
 	
 		Connection con = null;	// 데이터베이스 연결 객체
 		Statement stmt = null;  // SQL문을 실행 시켜주는  객체
+		
 		// ---JDBC_Select 추가된 내용 -------
 		ResultSet rs = null;	// 결과를 관리하는 객체
 		int no = 0;
@@ -19,10 +20,11 @@ class JDBC_Select {
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, "scott", "tiger");
-		
+			
 			stmt = con.createStatement();	
 			// ---JDBC_Select 추가된 내용 -------
 			sql = "SELECT * FROM customer";
+			//PreparedStatement pstmt = con.prepareStatement(sql);
 			System.out.printf("번호 \t 이름 \t\t 이메일 \t\t 전화번호 \n");
 			System.out.printf("-----------------------------------------------------------------\n");
 			rs = stmt.executeQuery(sql); // 얻어진 레코드를 가져옴
