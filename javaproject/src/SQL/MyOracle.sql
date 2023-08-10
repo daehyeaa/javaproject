@@ -1,5 +1,11 @@
 select * from customer;
 select * from seq;
+
+SELECT *
+  FROM all_sequences
+ WHERE sequence_name = 'BOARD_SEQ';
+ 
+
 select count(*) as 개수 from customer ;
 
 -- 임시 테이블 삭제
@@ -46,6 +52,8 @@ create  table  mem02(id  varchar2(20)  primary key,
 
 select * from board;
 		  				
+-- primary key(기본키) : 반드시 중복되지 않는 값을 저장 해야한다는 의미
+-- not null : null 값을 허용하지 않는다. 반드시 값을 입력해야된다는 의미
 create table board(
 	no number primary key,
 	writer varchar2(20) not null,
