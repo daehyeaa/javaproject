@@ -15,6 +15,8 @@ public class JDBC_Connect02{
 	String driver ="com.mysql.cj.jdbc.Driver";	// 8.x 버전은 
 	//String driver ="com.mysql.jdbc.Driver";	// 5.x 버전은
 	String url = "jdbc:mysql://localhost/jsptest";
+	//String url = "jdbc:mysql://172.30.1.33:3306/jsptest"; 남의 db 접속
+
 /*******************************************************************/
 
     Connection con = null;
